@@ -1,0 +1,3 @@
+[submodule "aimutil"]
+	path = aimutil
+	url = https://github.com/bbrister/aimutil.git
