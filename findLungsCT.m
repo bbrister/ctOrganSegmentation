@@ -1,6 +1,8 @@
 function mask = findLungsCT(im, units, ignore)
 % Find the lungs in a CT scan using thresholding and morphology. Assumes
 % that im is in Hounsfield units. Optionally find the mediastinum as well.
+% Use 'ignore' to supply previously-found organs, which are automatically
+% removed from the lungs.
 
 % Depednencies
 addpath(genpath('aimutil')) % for ballMask
@@ -44,7 +46,6 @@ ball = ballMask(openWidth, center, openMm / 2, units);
 seed = bwOpenN(mask, ball);
 
 % Take the two largest connected components, which are the lungs
-%WARING: This doesn't work if the scan contains the exam table
 cc = bwconncomp(seed);
 clear seed
 assert(cc.NumObjects >= 2)

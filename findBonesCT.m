@@ -1,7 +1,7 @@
 function mask = findBonesCT(im, units, ignore)
 % Find the lungs in a CT scan using thresholding and morphology. Assumes
 % that im is in Hounsfield units. Anything in 'ignore' is not treated as
-% bone, e.g. other organs which were found.
+% bone, e.g. other organs which were previously found.
 
 % Depednencies
 addpath(genpath('aimutil')) % for ballMask
